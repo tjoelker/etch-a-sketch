@@ -26,8 +26,6 @@ main section.container div.canvas {
   border: 1px solid silver;
   width: 60vw;
   display: grid;
-  grid-template-columns: repeat(16, 1fr);
-  grid-template-rows: repeat(16, 1fr);
 }
 main section.container div.canvas .pixel {
   aspect-ratio: 1/1;

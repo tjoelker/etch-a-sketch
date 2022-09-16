@@ -1,25 +1,47 @@
-/* Create canvas grid (16*16) */ 
+const white = '#ffffff';
+const black = '#000000';
+
+/* Create canvas grid */
+const settings = document.querySelector('.settings');
+
+settings.addEventListener('click', createGrid);
+
+/* Reset drawing */
+const reset = document.querySelector('.reset');
+
+reset.addEventListener('click', clearPixels);
+
+function clearPixels() {
+  const pixels = canvas.querySelectorAll('.pixel');
+  pixels.forEach(pixel => pixel.style.background = white);
+}
+
+/* Function for creation canvas grid */ 
 const canvas = document.querySelector('.canvas');
 
-createGrid(canvas);
-
-function createGrid(canvas) {
+function createGrid(e) {
+  let num = +prompt('Please supply the number of squares per side (max. 64)', +'');
+  if (isNaN(num) || num < 0 || num > 64 || num == '' || num == null) return console.log('ERROR');
+  canvas.innerHTML = null;
+  canvas.style.cssText = `grid-template-columns: repeat(${num}, 1fr);
+                          grid-template-rows: repeat(${num}, 1fr);`;
   let i = 0;
   do {
     let div = document.createElement('div');
     div.classList.add('pixel');
     canvas.appendChild(div);
     ++i;
-  } while (i != (16 * 16));
+  } while (i != (num * num));
+  indexPixels();
 };
 
 /* Make canvas's pixels interactive */
-const pixels = canvas.querySelectorAll('.pixel');
+function indexPixels() {
+  const pixels = canvas.querySelectorAll('.pixel');
+  pixels.forEach(pixel => pixel.addEventListener('mouseenter', fillPixels));
+};
 
-pixels.forEach(pixel => {
-  pixel.addEventListener('mouseenter', fillPixel);
-});
-
-function fillPixel(e) {
-  e.target.style.background = 'black';
+function fillPixels(e) {
+  console.log('active');
+  e.target.style.background = black;
 };
