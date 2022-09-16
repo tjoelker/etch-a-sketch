@@ -7,9 +7,9 @@ const settings = document.querySelector('.settings');
 settings.addEventListener('click', createGrid);
 
 /* Reset drawing */
-const reset = document.querySelector('.reset');
+const clear = document.querySelector('.clear');
 
-reset.addEventListener('click', clearPixels);
+clear.addEventListener('click', clearPixels);
 
 function clearPixels() {
   const pixels = canvas.querySelectorAll('.pixel');
