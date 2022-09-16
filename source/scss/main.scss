@@ -27,20 +27,69 @@ main {
     justify-content: center;
     align-items: center;
 
-    div.canvas {
-      aspect-ratio: 1 / 1;
-      border: 1px solid silver;
-      width: 60vw;
-      display: grid;
+    div.wrapper {
+      width: 80vw;
+      display: flex;
+      border: 2px solid black;
+      border-radius: 2em;
+    
+      div.control {
+        padding: 10vw 1.5vw 0 1.5vw;
+        flex: auto;
+        align-self: stretch;
+        display: flex;
+        flex-direction: column;
 
-      .pixel {
+        &.left {
+        }
+
+        &.right {
+          > button {
+            align-self: flex-start;
+          }
+        }
+
+        div.wheel {
+          aspect-ratio: 1 / 1;
+          display: flex;
+          justify-content: center;
+          padding: 1em;
+          width: 10vw;
+          border: 2px solid #000;
+          border-radius: 100%;
+
+          &.horizontal {
+            align-self: flex-end;
+          }
+
+          &.vertical {
+            align-self: flex-start;
+          }
+
+          div.knob {
+            aspect-ratio: inherit;
+            align-self: flex-start;
+            width: 44%;
+            border: 2px solid #000;
+            border-radius: 100%;
+          }
+        }
+      }
+
+      div.canvas {
         aspect-ratio: 1 / 1;
         border: 1px solid silver;
-        // width: 0.4em;
-        transition: all 0.3s;
+        width: 50vw;
+        display: grid;
 
-        &:hover {
+        .pixel {
+          aspect-ratio: 1 / 1;
+          border: 1px solid silver;
           transition: all 0.3s;
+
+          &:hover {
+            transition: all 0.3s;
+          }
         }
       }
     }

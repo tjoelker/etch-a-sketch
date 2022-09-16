@@ -21,17 +21,55 @@ main section.container {
   justify-content: center;
   align-items: center;
 }
-main section.container div.canvas {
+main section.container div.wrapper {
+  width: 80vw;
+  display: flex;
+  border: 2px solid black;
+  border-radius: 2em;
+}
+main section.container div.wrapper div.control {
+  padding: 10vw 1.5vw 0 1.5vw;
+  flex: auto;
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+}
+main section.container div.wrapper div.control.right > button {
+  align-self: flex-start;
+}
+main section.container div.wrapper div.control div.wheel {
+  aspect-ratio: 1/1;
+  display: flex;
+  justify-content: center;
+  padding: 1em;
+  width: 10vw;
+  border: 2px solid #000;
+  border-radius: 100%;
+}
+main section.container div.wrapper div.control div.wheel.horizontal {
+  align-self: flex-end;
+}
+main section.container div.wrapper div.control div.wheel.vertical {
+  align-self: flex-start;
+}
+main section.container div.wrapper div.control div.wheel div.knob {
+  aspect-ratio: inherit;
+  align-self: flex-start;
+  width: 44%;
+  border: 2px solid #000;
+  border-radius: 100%;
+}
+main section.container div.wrapper div.canvas {
   aspect-ratio: 1/1;
   border: 1px solid silver;
-  width: 60vw;
+  width: 50vw;
   display: grid;
 }
-main section.container div.canvas .pixel {
+main section.container div.wrapper div.canvas .pixel {
   aspect-ratio: 1/1;
   border: 1px solid silver;
   transition: all 0.3s;
 }
-main section.container div.canvas .pixel:hover {
+main section.container div.wrapper div.canvas .pixel:hover {
   transition: all 0.3s;
 }
