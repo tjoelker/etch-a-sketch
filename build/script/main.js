@@ -1,0 +1,1 @@
+'use strict';var canvas=document.querySelector('.canvas');function createGrid(e){var a=0;do{var l=document.createElement('div')}while(l.classList.add('pixel'),e.appendChild(l),256!=++a)}createGrid(canvas);var pixels=canvas.querySelectorAll('.pixel');function fillPixel(e){e.target.style.background='black'}pixels.forEach(function(e){e.addEventListener('mouseenter',fillPixel)});
