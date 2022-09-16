@@ -7,9 +7,9 @@ const settings = document.querySelector('.settings');
 settings.addEventListener('click', createGrid);
 
 /* Reset drawing */
-const reset = document.querySelector('.reset');
+const clear = document.querySelector('.clear');
 
-reset.addEventListener('click', clearPixels);
+clear.addEventListener('click', clearPixels);
 
 function clearPixels() {
   const pixels = canvas.querySelectorAll('.pixel');
@@ -42,6 +42,14 @@ function indexPixels() {
 };
 
 function fillPixels(e) {
-  console.log('active');
-  e.target.style.background = black;
+  e.target.style.background = color();
 };
+
+function color() {
+  const hex = '0123456789abcdef';
+  let color = '#';
+  while (color.length < 7) {
+    color += hex[Math.floor(Math.random() * 16)];
+  }
+  return color;
+}
