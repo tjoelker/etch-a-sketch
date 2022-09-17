@@ -1,4 +1,4 @@
-// @import './';
+@import './variables';
 
 * {
   box-sizing: border-box;
@@ -21,17 +21,20 @@ main {
   height: inherit;
 
   section.container {
-    display: flex;
     width: inherit;
     height: inherit;
+    display: flex;
     justify-content: center;
     align-items: center;
 
     div.wrapper {
       width: 80vw;
-      display: flex;
-      border: 2px solid black;
+      height: auto;
+      padding: 1em;
+      background: $wrapper;
+      border: $border solid black;
       border-radius: 2em;
+      display: flex;
     
       div.control {
         padding: 10vw 1.5vw 0 1.5vw;
@@ -40,23 +43,32 @@ main {
         display: flex;
         flex-direction: column;
 
-        &.left {
-        }
-
         &.right {
-          > button {
-            align-self: flex-start;
+          justify-content: space-between;
+
+          .buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5vw;
+
+            button {
+              border: calc($border / 2) solid black;
+              border-radius: .5em;
+              align-self: flex-start;
+            }
           }
         }
 
         div.wheel {
           aspect-ratio: 1 / 1;
+          width: 10vw;
+          padding: 1em;
+          background: $wheel;
+          border: $border solid #000;
+          border-radius: 100%;
           display: flex;
           justify-content: center;
-          padding: 1em;
-          width: 10vw;
-          border: 2px solid #000;
-          border-radius: 100%;
+          transition: all 0.3s;
 
           &.horizontal {
             align-self: flex-end;
@@ -70,7 +82,7 @@ main {
             aspect-ratio: inherit;
             align-self: flex-start;
             width: 44%;
-            border: 2px solid #000;
+            border: $border solid #000;
             border-radius: 100%;
           }
         }
@@ -78,13 +90,14 @@ main {
 
       div.canvas {
         aspect-ratio: 1 / 1;
-        border: 1px solid silver;
+        background: $canvas;
+        border: calc($border / 2) solid silver;
         width: 50vw;
         display: grid;
 
         .pixel {
           aspect-ratio: 1 / 1;
-          border: 1px solid silver;
+          border: inherit;
           transition: all 0.3s;
 
           &:hover {

@@ -49,6 +49,7 @@ function fillPixels(e) {
 /* On mousemovemnt */
 canvas.addEventListener('mousemove', catchHorizontalMouse);
 canvas.addEventListener('mousemove', catchVerticalMouse);
+canvas.addEventListener('mouseleave', releaseMouse);
 let temp_xAxis = 0;
 let temp_yAxis = 0;
 
@@ -84,4 +85,12 @@ function catchVerticalMouse(e) {
       break;
   }
   return temp_yAxis = yAxis;
+};
+
+function releaseMouse(e) {
+  const xWheel = document.querySelector('.horizontal.wheel');
+  const yWheel = document.querySelector('.vertical.wheel');
+  xWheel.style.transform = 'rotate(0deg)';
+  yWheel.style.transform = 'rotate(0deg)';
+  return;
 };
