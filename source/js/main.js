@@ -45,3 +45,43 @@ function fillPixels(e) {
   console.log('active');
   e.target.style.background = black;
 };
+
+/* On mousemovemnt */
+canvas.addEventListener('mousemove', catchHorizontalMouse);
+canvas.addEventListener('mousemove', catchVerticalMouse);
+let temp_xAxis = 0;
+let temp_yAxis = 0;
+
+function catchHorizontalMouse(e) {
+  const xWheel = document.querySelector('.horizontal.wheel');
+  const xAxis = e.pageX;
+  switch (true) {
+    case (xAxis < temp_xAxis):
+      xWheel.style.transform = 'rotate(-45deg)';
+      break;
+    case (xAxis > temp_xAxis):
+      xWheel.style.transform = 'rotate(45deg)';
+      break;
+    case (xAxis == temp_xAxis):
+      xWheel.style.transform = 'rotate(0deg)';
+      break;
+  }
+  return temp_xAxis = xAxis;
+};
+
+function catchVerticalMouse(e) {
+  const yWheel = document.querySelector('.vertical.wheel');
+  const yAxis = e.pageY;
+  switch (true) {
+    case (yAxis < temp_yAxis):
+      yWheel.style.transform = 'rotate(45deg)';
+      break;
+    case (yAxis > temp_yAxis):
+      yWheel.style.transform = 'rotate(-45deg)';
+      break;
+    case (yAxis == temp_yAxis):
+      yWheel.style.transform = 'rotate(0deg)';
+      break;
+  }
+  return temp_yAxis = yAxis;
+};
